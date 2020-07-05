@@ -2,7 +2,7 @@
   "name": "@jouwweb/better-crowdin",
   "version": "1.1.0",
   "description": "Crowdin CLI on steroids",
-  "repository": "github:JouwWeb/better-crowdin"
+  "repository": "github:JouwWeb/better-crowdin",
   "skipBuild": true,
   "license": "Apache-2.0",
   "bin": {
