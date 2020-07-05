@@ -1,9 +1,9 @@
 {
-  "name": "better-crowdin",
-  "version": "1.0.1",
+  "name": "@jouwweb/better-crowdin",
+  "version": "1.1.0",
   "description": "Crowdin CLI on steroids",
   "skipBuild": true,
-  "license": "UNLICENSED",
+  "license": "Apache-2.0",
   "bin": {
     "better-crowdin": "./bin/better-crowdin"
   },
