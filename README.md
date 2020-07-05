@@ -1,21 +1,17 @@
 # better-crowdin
 
-[![Build Status](https://travis-ci.org/cabify/better-crowdin.svg?branch=master)](https://travis-ci.org/cabify/better-crowdin)
-[![Coverage Status](https://coveralls.io/repos/github/cabify/better-crowdin/badge.svg?branch=master)](https://coveralls.io/github/cabify/better-crowdin?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/cabify/better-crowdin.svg)](https://greenkeeper.io/)
-
 Crowdin CLI on steroids.
 
-This CLI is based on [Official CLI](https://support.crowdin.com/cli-tool/) but adding several features
-like project translation status, list branches, delete branches, etc.\* Moreover, it offers automatic sync
-between git branches and crowdin branch
+This CLI is based on [Official CLI](https://support.crowdin.com/cli-tool/) and adds several features
+like project translation status, list branches, delete branches, pretranslation etc. Moreover, it offers automatic sync
+between Git branches and Crowdin branches.
 
-\*NOTE: Right now this CLI doesn't cover 100% of the features of the official client and error handling
-is not polished. Please open PR's if you find something wrong
+NOTE: This CLI doesn't cover 100% of the features of the official client and error handling is not polished. Please open PRs if you find something wrong.
 
 ## Installation
 
 ```sh
-$ npm install -g @cabify-dev/better-crowdin
+$ npm install @jouwweb/better-crowdin
 ```
 
 ## Configuration
@@ -24,25 +20,29 @@ In order to use inside your project, the easiest way is to have a `crowdin.yml` 
 with the same shape than the official client one, plus some new config options
 
 ```yml
-"project_identifier" : "your-project-identifier"
-"api_key" : "your-api-key"
-"base_path" : "your-base-path"
+project_identifier: 'your-project-identifier'
+api_key: 'your-api-key'
+base_path: 'your/base/path'
 
-## New flags
-"base_branches": ["master"] # list of git branches that are not generating a Crowdin branch when uploading sources
-"skip_validation": ["ja", "en", "es-MX"] # list of languages that will be ignored when calling "better-crowdin status"
+## New options
 
-"files": [
-  {
-    "source" : "/t1/**/*",
-    "translation" : "/%two_letters_code%/%original_file_name%",
-    "languages_mapping" : {
-      "two_letters_code" : {
-        "ru" : "ros",
-        "uk" : "ukr"
-      }
-  }
-]
+# List of Git branches that will not generate a Crowdin branch when uploading sources.
+base_branches: ['master'] 
+
+# List of Crowin language codes that will be ignored when calling "better-crowdin status.
+skip_validation: ['ja', 'en', 'es-MX'] 
+
+# Trigger automatic pretranslation for configured Crowdin language codes after upload.
+pre_translation_engine: 'deepl'
+pre_translation_languages: ['en', 'de', 'es-MX']
+
+files:
+  - source: 'path/to/*.pot'
+    translation: '%two_letters_code%/%original_file_name%.po'
+    languages_mapping:
+      two_letters_code:
+        ru: ros
+        uk: ukr
 ```
 
 ## Basic usage
@@ -78,7 +78,7 @@ Options:
 
 ## Advanced usage: Work with feature branches
 
-The main advantage of this client over the official one is the work with crowdin branches integrated
+The main advantage of this client over the official one is the work with Crowdin branches integrated
 with gitflow (feature branches).
 
 Briefly, the steps to add new keys to crowdin when working with feature branches are:
@@ -205,31 +205,3 @@ If you remove some key/keys in your _source.json_ file, only run the next comman
 > better-crowdin upload
 > better-crowdin download
 ```
-
-## Contributing
-
-1.  Fork it
-2.  Create your feature branch (`git checkout -b my-new-feature`)
-3.  Commit your changes (`git commit -am 'Added some feature'`)
-4.  Push to the branch (`git push origin my-new-feature`)
-5.  Create new Pull Request
-
-### Running tests
-
-```sh
-npm run test
-```
-
-### Running the linter
-
-```sh
-npm run lint
-```
-
-### Contributors
-
-- Main contributor [@jalopez](https://github.com/jalopez)
-
-#### Other contributors
-
-- [@cicloon](https://github.com/cicloon)
