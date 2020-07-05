@@ -1,4 +1,5 @@
 const api = require('../../lib/api');
+const path = require('path');
 
 let mockRequestSpy;
 
@@ -235,8 +236,8 @@ describe('lib/api', () => {
           uri:
             'https://api.crowdin.com/api/project/some/upload-translation?key=123&json=true&language=es',
           formData: expect.objectContaining({
-            'files[0]': '/some/path/some-file.txt',
-            'files[1]': '/some/path/other-file.txt',
+            'files[0]': `${path.sep}some${path.sep}path${path.sep}some-file.txt`,
+            'files[1]': `${path.sep}some${path.sep}path${path.sep}other-file.txt`,
           }),
         }),
         'post',
