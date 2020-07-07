@@ -15,12 +15,18 @@
     "i18n"
   ],
   "scripts": {
-    "test": "cross-env BABEL_ENV=test jest",
-    "test:watch": "cross-env BABEL_ENV=test jest --watch",
-    "test:coverage": "cross-env BABEL_ENV=test jest --coverage",
-    "test:ci": "cross-env BABEL_ENV=test jest --coverage --forceExit --maxWorkers=4 --no-watchman && cat ./coverage/lcov.info | coveralls",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "camelcase-keys": "^4.2.0",
+    "chalk": "^2.4.0",
+    "git-branch": "^2.0.1",
+    "js-yaml": "^3.11.0",
+    "json-query": "^2.2.2",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2",
+    "yargs": "^11.1.0"
   },
   "devDependencies": {
     "babel-jest": "^23.0.1",
@@ -40,8 +46,6 @@
     "babel-preset-es2015-native-modules": "^6.9.4",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.23.0",
-    "coveralls": "^3.0.1",
-    "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-airbnb-base": "^13.0.0",
@@ -54,16 +58,6 @@
     "jest": "^23.1.0",
     "mock-fs": "^4.5.0",
     "prettier": "^1.13.4"
-  },
-  "dependencies": {
-    "camelcase-keys": "^4.2.0",
-    "chalk": "^2.4.0",
-    "git-branch": "^2.0.1",
-    "js-yaml": "^3.11.0",
-    "json-query": "^2.2.2",
-    "request": "^2.85.0",
-    "request-promise": "^4.2.2",
-    "yargs": "^11.1.0"
   },
   "engines": {
     "node": ">=8.0.0"
