@@ -1,3 +1,7 @@
+## DEPRECATION NOTICE
+This project is no longer maintained, see https://github.com/cabify/better-crowdin/issues/39 for more info
+
+
 # better-crowdin
 
 Crowdin CLI on steroids.
